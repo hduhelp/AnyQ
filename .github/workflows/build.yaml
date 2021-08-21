@@ -1,0 +1,35 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "**.md"
+      - "**.txt"
+      - "mkdocs.yaml"
+      - ".readthedocs.yaml"
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - "**.md"
+      - "**.txt"
+      - "mkdocs.yaml"
+      - ".readthedocs.yaml"
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set dependencies
+        run: apt install cmake automake -y
+
+      - name: Build
+        run: mkdir build && cd build && cmake .. && make
