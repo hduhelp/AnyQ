@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set dependencies
-        run: apt install cmake automake -y
+        run: sudo apt install -y cmake automake
 
       - name: Build
         run: mkdir build && cd build && cmake .. && make
