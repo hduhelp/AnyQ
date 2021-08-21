@@ -44,9 +44,10 @@ jobs:
           wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
           tar xzvf jdk-8u171-linux-x64.tar.gz
           export PATH=`pwd`/jdk1.8.0_171/bin:$PATH
-          
+
       - name: change g++ version
         run: |
+          sudo apt-get update
           sudo apt-get install -y gcc-5
           sudo apt-get install -y g++-5
           cd /usr/bin
@@ -54,6 +55,7 @@ jobs:
           sudo ln -s gcc-5 gcc
           sudo rm g++
           sudo ln -s g++-5 g++
+          gcc --version
 
       - name: List dependencies version
         run: |
