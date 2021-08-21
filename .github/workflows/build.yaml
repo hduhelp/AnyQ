@@ -43,5 +43,9 @@ jobs:
         run: |
           # cmake -E version
 
+      - name: check bison version
+        run: |
+          bison -V
+          
       - name: Build
         run: mkdir build && cd build && cmake .. && make
