@@ -32,5 +32,9 @@ jobs:
       - name: Set dependencies
         run: sudo apt install -y cmake automake
 
+      - name: List dependencies version
+        run: |
+          cmake -E version
+
       - name: Build
         run: mkdir build && cd build && cmake .. && make
