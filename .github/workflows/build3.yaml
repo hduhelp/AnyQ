@@ -24,24 +24,36 @@ jobs:
     runs-on: ubuntu-latest
     container: centos:centos7
     steps:    
-      - name: env
+      - name: install gcc and g++
         run: |
           yum install -y centos-release-scl-rh
           yum install -y devtoolset-7
           source /opt/rh/devtoolset-7/enable
           gcc --version
           g++ --version
+      
+      - name: install automake
+        run: |
           yum install -y make automake
+
+      - name: install jdk
+        run: |
           yum install -y wget
           wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
           tar xzvf jdk-8u171-linux-x64.tar.gz
           export PATH=`pwd`/jdk1.8.0_171/bin:$PATH
-          wget https://cmake.org/files/v3.3/cmake-3.3.2.tar.gz
-          tar -zxvf cmake-3.3.2.tar.gz
-          cd cmake-3.3.2/
+      
+      - name: install cmake
+        run: |
+          wget https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1.tar.gz
+          tar -zxvf cmake-3.21.1.tar.gz
+          cd cmake-3.21.1/
           ./bootstrap
           gmake
           gmake install
+
+      - name: install other
+        run: |
           yum install -y bison
           yum install -y git
       
