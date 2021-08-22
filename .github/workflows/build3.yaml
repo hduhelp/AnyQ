@@ -27,10 +27,8 @@ jobs:
       - name: env
         run: |
           yum install -y centos-release-scl-rh
-          yum-config-manager --enable rhel-server-rhscl-7-rpms
-          yum install -y devtoolset-7
-          scl enable devtoolset-7 bash
-          which gcc
+          yum install -y devtoolset-4-gcc devtoolset-4-gcc-c++
+          source /opt/rh/devtoolset-4/enable
           gcc --version
           g++ --version
           yum install -y make automake
