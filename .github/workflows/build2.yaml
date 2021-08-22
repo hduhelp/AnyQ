@@ -22,15 +22,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: paddlepaddle/paddle:latest-dev
     steps:
-      - name: env
-        run: |
-          docker pull paddlepaddle/paddle:latest-dev
-          docker run --name paddle -v $PWD:/paddle paddlepaddle/paddle:latest-dev /bin/bash
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: build
         run: |
-          mkdir build && cd build && cmake .. && make
+          cd ~
+          git clone https://github.com/baidu/AnyQ.git
+          cd ./AnyQ
+          mkdir build
+          cd build
+          cmake ..
+          make
