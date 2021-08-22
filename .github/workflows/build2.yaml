@@ -26,7 +26,7 @@ jobs:
       - name: env
         run: |
           docker pull paddlepaddle/paddle:latest-dev
-          docker run -it paddle:latest-dev ls
+          docker run paddle:latest-dev ls
 
       - name: Checkout code
         uses: actions/checkout@v2
