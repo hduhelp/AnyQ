@@ -7,7 +7,7 @@ ExternalProject_Add(
     extern_gflags
     ${EXTERNAL_PROJECT_LOG_ARGS}
     GIT_REPOSITORY  "https://github.com/gflags/gflags.git"
-    GIT_TAG         "v2.2.1"
+    GIT_TAG         "v2.2.2"
     PREFIX          ${GFLAGS_SOURCES_DIR}
     UPDATE_COMMAND  ""
     CMAKE_ARGS      -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}

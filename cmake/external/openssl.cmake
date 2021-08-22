@@ -7,7 +7,7 @@ ExternalProject_Add(
     extern_openssl
     ${EXTERNAL_PROJECT_LOG_ARGS}
     DOWNLOAD_DIR ${OPENSSL_DOWNLOAD_DIR}
-    DOWNLOAD_COMMAND        git clone https://github.com/openssl/openssl.git && cd openssl && git checkout OpenSSL_1_1_1
+    DOWNLOAD_COMMAND        git clone https://github.com/openssl/openssl.git && cd openssl && git checkout OpenSSL_1_1_1k
     DOWNLOAD_NO_PROGRESS    1
     PREFIX                  ${OPENSSL_SOURCES_DIR}
     BUILD_COMMAND           ""
