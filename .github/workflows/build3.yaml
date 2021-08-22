@@ -27,6 +27,7 @@ jobs:
       - name: env
         run: |
           yum install -y centos-release-scl
+          yum-config-manager --enable rhel-server-rhscl-7-rpms
           yum install -y devtoolset-5-gcc*
           scl enable devtoolset-5 bash
           which gcc
