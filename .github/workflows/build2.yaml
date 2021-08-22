@@ -31,7 +31,7 @@ jobs:
 
       - name: install dependencies
         run: |
-          sudo apt install -y make automake bison
+          sudo yum install -y make automake bison
 
       - name: install jdk
         uses: actions/setup-java@v2
