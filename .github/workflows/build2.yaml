@@ -25,8 +25,8 @@ jobs:
     steps:
       - name: env
         run: |
-          docker pull paddlepaddle/paddle:2.1.2
-          docker run --name paddle -v $PWD:/paddle paddlepaddle/paddle:2.1.2 /bin/bash
+          docker pull paddlepaddle/paddle:latest-dev
+          docker run --name paddle -v $PWD:/paddle paddlepaddle/paddle:latest-dev /bin/bash
 
       - name: Checkout code
         uses: actions/checkout@v2
