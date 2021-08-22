@@ -22,7 +22,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: centos:centos7
     steps:
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v1.9
@@ -31,7 +30,7 @@ jobs:
 
       - name: install dependencies
         run: |
-          yum install -y make automake bison
+          sudo apt install -y make automake bison
 
       - name: install jdk
         uses: actions/setup-java@v2
@@ -45,4 +44,8 @@ jobs:
       - name: build
         run: |
           ls -l
-          mkdir build && cd build && cmake .. && make
+          mkdir build
+          cd build
+          cmake ..
+          find . -name Makefile | xargs sed -i -e 's#-O3#-g#g'
+          make
