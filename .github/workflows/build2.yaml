@@ -28,7 +28,7 @@ jobs:
 
       - name: env
         uses: docker://paddlepaddle/paddle:latest-dev
-        
+
       - name: build
-        uses: |
+        run: |
           mkdir build && cd build && cmake .. && make
