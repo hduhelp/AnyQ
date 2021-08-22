@@ -21,13 +21,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-16.04
     steps:
-      - name: change sh to bash
-        run: sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh
-
       - name: env
-        uses: docker://paddlepaddle/paddle:latest-dev
+        uses: docker://paddlepaddle/paddle:latest
 
       - name: Checkout code
         uses: actions/checkout@v2
