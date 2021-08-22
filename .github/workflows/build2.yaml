@@ -1,0 +1,8 @@
+uses: paddlepaddle/paddle:latest-dev
+
+jobs:
+  build:
+    steps:
+      - name: build
+        uses: |
+          mkdir build && cd build && cmake .. && make
