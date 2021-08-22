@@ -26,14 +26,13 @@ jobs:
     steps:    
       - name: env
         run: |
-          yum install -y gcc-5 g++-5 make automake
-          cd /usr/bin
-          rm gcc
-          ln -s gcc-5 gcc
-          rm g++
-          ln -s g++-5 g++
+          yum install -y centos-release-scl
+          yum install -y devtoolset-5-gcc*
+          scl enable devtoolset-5 bash
+          which gcc
           gcc --version
           g++ --version
+          yum install -y make automake
           yum install -y wget
           wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
           tar xzvf jdk-8u171-linux-x64.tar.gz
