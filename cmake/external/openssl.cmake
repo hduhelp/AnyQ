@@ -14,7 +14,7 @@ ExternalProject_Add(
     UPDATE_COMMAND          ""
     CONFIGURE_COMMAND       ""
     INSTALL_COMMAND         cd ${OPENSSL_DOWNLOAD_DIR}/openssl/ && pwd
-                            && ./config --prefix=${OPENSSL_INSTALL_DIR} --libdir=lib && pwd
+                            && ./config -d --prefix=${OPENSSL_INSTALL_DIR} --libdir=lib && pwd
                             && make -j32
                             && make install
     BUILD_IN_SOURCE 1
