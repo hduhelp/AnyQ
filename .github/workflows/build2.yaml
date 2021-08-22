@@ -23,17 +23,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: paddlepaddle/paddle:latest-dev
-      env:
-        NODE_ENV: development
-      ports:
-        - 80
-      volumes:
-        - $(PWD):/AnyQ/
+      image: paddlepaddle/paddle:2.1.2
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: build
         run: |
+          ls -l
           mkdir build && cd build && cmake .. && make
