@@ -22,21 +22,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: centos:centos7
     steps:
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v1.9
         with:
           cmake-version: '3.2.2'
 
-      - name: install automake
+      - name: install dependencies
         run: |
-          sudo apt install -y make automake
+          sudo apt install -y make automake bison
 
       - name: install jdk
-        run: |
-          wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
-          tar xzvf jdk-8u171-linux-x64.tar.gz
-          export PATH=`pwd`/jdk1.8.0_171/bin:$PATH
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt' # See 'Supported distributions' for available options
+          java-version: '11'
 
       - name: Checkout code
         uses: actions/checkout@v2
