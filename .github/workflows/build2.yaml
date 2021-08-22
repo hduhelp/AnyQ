@@ -32,6 +32,13 @@ jobs:
         run: |
           sudo apt install -y make automake bison
 
+      - name: set gcc
+        run: |
+          export CFLAGS="-Wno-error"
+          export CXXFLAGS="-Wno-error"
+          echo $CFLAGS
+          echo $CXXFLAGS
+
       - name: Checkout code
         uses: actions/checkout@v2
 
