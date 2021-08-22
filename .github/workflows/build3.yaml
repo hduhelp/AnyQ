@@ -24,21 +24,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: env
-          uses: docker://centos:centos7
-          run: |
-            cd home/
-            wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
-            tar xzvf jdk-8u171-linux-x64.tar.gz
-            export PATH=`pwd`/jdk1.8.0_171/bin:$PATH
-            yum install -y gcc gcc-c++ make automake
-            wget https://cmake.org/files/v3.3/cmake-3.3.2.tar.gz
-            tar -zxvf cmake-3.3.2.tar.gz
-            cd cmake-3.3.2/ 
-            ./bootstrap 
-            gmake 
-            gmake install
-            yum install  -y bison
-            cd home/
-            git clone https://github.com/baidu/AnyQ.git
-            cd ./AnyQ
-            mkdir build && cd build && cmake .. & make
+        uses: docker://centos:centos7
+        run: |
+          cd home/
+          wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
+          tar xzvf jdk-8u171-linux-x64.tar.gz
+          export PATH=`pwd`/jdk1.8.0_171/bin:$PATH
+          yum install -y gcc gcc-c++ make automake
+          wget https://cmake.org/files/v3.3/cmake-3.3.2.tar.gz
+          tar -zxvf cmake-3.3.2.tar.gz
+          cd cmake-3.3.2/ 
+          ./bootstrap 
+          gmake 
+          gmake install
+          yum install  -y bison
+          cd home/
+          git clone https://github.com/baidu/AnyQ.git
+          cd ./AnyQ
+          mkdir build && cd build && cmake .. & make
