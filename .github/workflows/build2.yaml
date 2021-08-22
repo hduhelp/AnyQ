@@ -24,8 +24,8 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: change sh to bash
-        run: rm /bin/sh && ln -s /bin/bash /bin/sh
-        
+        run: sudo rm /bin/sh && sudo ln -s /bin/bash /bin/sh
+
       - name: env
         uses: docker://paddlepaddle/paddle:latest-dev
 
