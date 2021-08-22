@@ -43,5 +43,7 @@ jobs:
           cd ~
           yum install -y git
           git clone https://github.com/baidu/AnyQ.git
+          ls
           cd ./AnyQ
+          ls
           mkdir build && cd build && cmake .. & make
