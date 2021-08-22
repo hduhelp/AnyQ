@@ -40,11 +40,15 @@ jobs:
           gmake 
           gmake install
           yum install -y bison
-          cd ~
-          yum install -y git
-          git clone https://github.com/baidu/AnyQ.git
-          ls
-          cd ./AnyQ
+          # cd ~
+          # yum install -y git
+          # git clone https://github.com/baidu/AnyQ.git
+      
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: build
+        run: |
           ls
           mkdir build
           cd build
