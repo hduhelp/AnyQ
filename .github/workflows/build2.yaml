@@ -23,23 +23,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-        image: paddlepaddle/paddle:latest-dev
-        env:
-          NODE_ENV: development
-        ports:
-          - 80
-        volumes:
-          - $PWD:/AnyQ
+      image: paddlepaddle/paddle:latest-dev
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - $PWD:.
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: build
         run: |
-          cd ~
-          git clone https://github.com/baidu/AnyQ.git
-          cd ./AnyQ
-          mkdir build
-          cd build
-          cmake ..
-          make
+          mkdir build && cd build && cmake .. && make
