@@ -26,9 +26,7 @@ jobs:
     steps:    
       - name: env
         run: |
-          yum install -y devtoolset-7-toolchain
-          yum install -y centos-release-scl-rh centos-release-scl
-          yum install -y devtoolset-7-gcc-c++.x86_64 devtoolset-7-gcc.x86_64 make automake
+          yum install -y gcc gcc-c++ make automake
           scl enable devtoolset-7 bash
           g++ --version
           yum install -y wget
