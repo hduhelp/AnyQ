@@ -28,10 +28,10 @@ jobs:
         run: |
           yum install -y gcc-5 g++-5 make automake
           cd /usr/bin
-          sudo rm gcc
-          sudo ln -s gcc-5 gcc
-          sudo rm g++
-          sudo ln -s g++-5 g++
+          rm gcc
+          ln -s gcc-5 gcc
+          rm g++
+          ln -s g++-5 g++
           gcc --version
           g++ --version
           yum install -y wget
