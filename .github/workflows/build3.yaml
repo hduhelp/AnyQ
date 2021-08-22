@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: env
         uses: docker://centos:centos7
+      
+      - name: build
         run: |
           cd home/
           wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
