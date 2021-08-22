@@ -1,4 +1,4 @@
-name: build2
+name: build3
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: env
-          use: docker://centos:centos7
+          uses: docker://centos:centos7
           run: |
             cd home/
             wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
