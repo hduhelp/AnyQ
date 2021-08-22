@@ -24,11 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     container: centos:centos7
     steps:    
-      - name: build
+      - name: env
         run: |
-          cat /etc/os-release
           yum install -y wget
-          cd ~
           wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
           tar xzvf jdk-8u171-linux-x64.tar.gz
           export PATH=`pwd`/jdk1.8.0_171/bin:$PATH
@@ -36,20 +34,17 @@ jobs:
           wget https://cmake.org/files/v3.3/cmake-3.3.2.tar.gz
           tar -zxvf cmake-3.3.2.tar.gz
           cd cmake-3.3.2/
-          ./bootstrap 
-          gmake 
+          ./bootstrap
+          gmake
           gmake install
           yum install -y bison
-          # cd ~
-          # yum install -y git
-          # git clone https://github.com/baidu/AnyQ.git
-      
-      - name: Checkout code
-        uses: actions/checkout@v2
+          yum install -y git
       
       - name: build
         run: |
-          ls
+          cd ~
+          git clone https://github.com/baidu/AnyQ.git
+          cd ./AnyQ
           mkdir build
           cd build
           cmake ..
