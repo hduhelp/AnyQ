@@ -30,7 +30,8 @@ jobs:
           wget http://anyq.bj.bcebos.com/jdk-8u171-linux-x64.tar.gz
           tar xzvf jdk-8u171-linux-x64.tar.gz
           export PATH=`pwd`/jdk1.8.0_171/bin:$PATH
-          yum install -y gcc gcc-c++ make automake
+          yum install -y devtoolset-7-gcc-c++.x86_64 devtoolset-7-gcc.x86_64 make automake
+          scl enable devtoolset-7 bash
           wget https://cmake.org/files/v3.3/cmake-3.3.2.tar.gz
           tar -zxvf cmake-3.3.2.tar.gz
           cd cmake-3.3.2/
