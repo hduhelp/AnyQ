@@ -21,13 +21,15 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    container:
+        image: paddlepaddle/paddle:latest-dev
+        env:
+          NODE_ENV: development
+        ports:
+          - 80
+        volumes:
+          - $PWD:/AnyQ
     steps:
-      - name: env
-        run: |
-          docker pull paddlepaddle/paddle:latest-dev
-          docker run --name paddle -v $PWD:/paddle paddlepaddle/paddle:latest-dev /bin/bash
-
       - name: Checkout code
         uses: actions/checkout@v2
 
