@@ -1,4 +1,4 @@
-uses: paddlepaddle/paddle:latest-dev
+name: build2
 
 on:
   push:
@@ -18,10 +18,17 @@ on:
       - "**.txt"
       - "mkdocs.yaml"
       - ".readthedocs.yaml"
-      
+
 jobs:
   build:
+    runs-on: ubuntu-18.04
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: env
+        uses: docker://paddlepaddle/paddle:latest-dev
+        
       - name: build
         uses: |
           mkdir build && cd build && cmake .. && make
