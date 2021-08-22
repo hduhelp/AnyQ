@@ -28,6 +28,7 @@ jobs:
         run: |
           yum install -y centos-release-scl-rh
           yum install -y devtoolset-7 devtoolset-3
+          source /opt/rh/devtoolset-3/enable
           source /opt/rh/devtoolset-7/enable
           gcc --version
           g++ --version
