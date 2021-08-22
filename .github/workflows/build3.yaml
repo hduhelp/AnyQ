@@ -28,8 +28,8 @@ jobs:
         run: |
           yum install -y centos-release-scl-rh
           yum-config-manager --enable rhel-server-rhscl-7-rpms
-          yum install -y devtoolset-6
-          scl enable devtoolset-6 bash
+          yum install -y devtoolset-7
+          scl enable devtoolset-7 bash
           which gcc
           gcc --version
           g++ --version
