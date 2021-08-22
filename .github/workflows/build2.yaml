@@ -23,11 +23,11 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: env
         uses: docker://paddlepaddle/paddle:latest-dev
+
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: build
         run: |
