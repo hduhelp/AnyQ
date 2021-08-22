@@ -21,10 +21,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     steps:
       - name: env
-        uses: docker://paddlepaddle/paddle:latest
+        runs: |
+          docker pull paddlepaddle/paddle:latest-dev
+          docker run -it paddle:latest-dev ls
 
       - name: Checkout code
         uses: actions/checkout@v2
