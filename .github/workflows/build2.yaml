@@ -47,5 +47,4 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          find . -name Makefile | xargs sed -i -e 's#-O3#-g#g'
           make
