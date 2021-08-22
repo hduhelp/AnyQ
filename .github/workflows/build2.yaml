@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: env
-        runs: |
+        run: |
           docker pull paddlepaddle/paddle:latest-dev
           docker run -it paddle:latest-dev ls
 
