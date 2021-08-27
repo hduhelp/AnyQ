@@ -6,8 +6,7 @@ SET(PADDLE_INSTALL_DIR ${THIRD_PARTY_PATH}/install/paddle)
 ExternalProject_Add(
     extern_paddle
     ${EXTERNAL_PROJECT_LOG_ARGS}
-    GIT_REPOSITORY       "https://github.com/PaddlePaddle/Paddle.git"
-    GIT_TAG              "v0.14.0"
+    GIT_REPOSITORY       "https://github.com/hduhelp/Paddle.git"
     PREFIX               ${PADDLE_SOURCES_DIR}
     CONFIGURE_COMMAND    mkdir -p ${PADDLE_INSTALL_DIR} && cd ${PADDLE_INSTALL_DIR} && ${CMAKE_COMMAND} -DCMAKE_INSTALL_PREFIX=${PADDLE_INSTALL_DIR} 
                          -DCMAKE_BUILD_TYPE=Release -DWITH_PYTHON=OFF -DWITH_MKL=ON -DWITH_MKLDNN=OFF -DWITH_GPU=OFF -DWITH_FLUID_ONLY=ON <SOURCE_DIR>
