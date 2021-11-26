@@ -23,18 +23,12 @@ jobs:
   build:
     runs-on: hdu107
     steps:
-      # - name: Setup cmake
-      #   uses: jwlawson/actions-setup-cmake@v1.9
-      #   with:
-      #     cmake-version: '3.3'
-
-      # - name: install dependencies
-      #   run: |
-      #     sudo apt install -y make automake bison
-
       - name: set github mirror
         run: |
-          git config url."https://hub.fastgit.org".insteadOf https://github.com
+        git config --unset url.https://github.com/.insteadof
+
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: set gcc
         run: |
@@ -43,8 +37,9 @@ jobs:
           echo $CFLAGS
           echo $CXXFLAGS
 
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: set github mirror
+        run: |
+          git config url."https://hub.fastgit.org".insteadOf https://github.com
 
       - name: build
         run: |
@@ -52,4 +47,4 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          make -j16
+          make -j32
