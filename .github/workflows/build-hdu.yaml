@@ -23,9 +23,10 @@ jobs:
   build:
     runs-on: hdu107
     steps:
+
       - name: set github mirror
         run: |
-        git config --unset url.https://github.com/.insteadof
+          git config --unset url.https://github.com/.insteadof
 
       - name: Checkout code
         uses: actions/checkout@v2
