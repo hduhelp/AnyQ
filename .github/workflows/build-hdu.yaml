@@ -32,6 +32,10 @@ jobs:
       #   run: |
       #     sudo apt install -y make automake bison
 
+      - name: set github mirror
+        run: |
+          git config url."https://hub.fastgit.org".insteadOf https://github.com
+
       - name: set gcc
         run: |
           export CFLAGS="-Wno-error"
