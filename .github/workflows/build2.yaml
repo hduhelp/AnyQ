@@ -21,7 +21,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Setup cmake
         uses: jwlawson/actions-setup-cmake@v1.9
@@ -48,4 +48,4 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          make
+          make -j4
