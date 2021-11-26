@@ -28,9 +28,9 @@ jobs:
         with:
           cmake-version: '3.3'
 
-      - name: install dependencies
-        run: |
-          sudo apt install -y make automake bison
+      # - name: install dependencies
+      #   run: |
+      #     sudo apt install -y make automake bison
 
       - name: set gcc
         run: |
