@@ -24,9 +24,9 @@ jobs:
     runs-on: hdu107
     steps:
 
-      - name: set github mirror
+      - name: unset github mirror
         run: |
-          git config --unset url.https://github.com/.insteadof
+          git config --unset url.https://hub.fastgit.org.insteadof
 
       - name: Checkout code
         uses: actions/checkout@v2
