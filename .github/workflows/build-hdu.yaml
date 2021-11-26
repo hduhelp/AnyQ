@@ -26,7 +26,7 @@ jobs:
 
       - name: unset github mirror
         run: |
-          git config --unset url.https://hub.fastgit.org.insteadof
+          git config --unset url."https://hub.fastgit.org".insteadOf
 
       - name: Checkout code
         uses: actions/checkout@v2
